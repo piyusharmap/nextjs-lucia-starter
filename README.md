@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js & Lucia Auth Starter Kit
 
-## Getting Started
+> This repository contains a boilerplate for building applications using Next.js, Lucia Auth and Drizzle ORM.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This starter kit provides a solid foundation for developing a modern web application with authentication and database interaction.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Goal
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The goal of this starter kit is to provide a basic application structure that you can build upon. Authentication can often be a barrier to development, but with this setup, you can focus on implementing your ideas without spending time on configuring authentication.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
 
-## Learn More
+1. `Next.js`: A powerful React framework for building server-side rendered and statically generated websites.
 
-To learn more about Next.js, take a look at the following resources:
+2. `Lucia Auth`: A flexible authentication library with built-in support for various authentication methods.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. `Drizzle ORM`: A lightweight, type-safe ORM for interacting with your database.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. `Shadcn Components`: A set of beautifully designed UI components to speed up your development process.
 
-## Deploy on Vercel
+5. `TypeScript`: Type-safe code with TypeScript support.
+   Tailwind CSS: Utility-first CSS framework for rapid UI development.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. `ESLint & Prettier`: Configured for code linting and formatting.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Setup

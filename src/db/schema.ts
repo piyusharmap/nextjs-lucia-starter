@@ -1,14 +1,16 @@
-import { pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
-const userTable = pgTable("user", {
+export const userTable = pgTable("user", {
 	id: text("id").primaryKey(),
+	username: varchar("username", { length: 128 }).notNull().unique(),
+	passwordHash: text("password_hash").notNull(),
 });
 
-const sessionTable = pgTable("session", {
+export const sessionTable = pgTable("session", {
 	id: text("id").primaryKey(),
 	userId: text("user_id")
 		.notNull()
-		.references(() => userTable.id),
+		.references(() => userTable.id, { onDelete: "cascade" }),
 	expiresAt: timestamp("expires_at", {
 		withTimezone: true,
 		mode: "date",
