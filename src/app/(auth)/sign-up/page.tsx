@@ -1,26 +1,47 @@
-import Container from "@/components/layout/container";
-import SignUpForm from "../forms/signupForm";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
+
+import Container from '@/components/layout/container';
+import ThemeToggle from '@/components/theme/themeToggle';
+import SignUpForm from '../forms/signupForm';
 
 const SignUpPage = () => {
-	return (
-		<Container>
-			<h1 className="px-4 py-5 font-medium text-xl sm:text-3xl text-center">
-				Create an account
-			</h1>
+  return (
+    <Container className='relative p-0 flex flex-col justify-center items-center space-y-4'>
+      <Image
+        src='/logo.svg'
+        alt='NEXTxLUCIA'
+        width={100}
+        height={100}
+        className='size-12'
+      />
 
-			<div className="px-4 py-5 mx-auto w-full sm:w-4/5 md:w-1/2">
-				<SignUpForm />
-			</div>
+      <div className='absolute top-0 right-0 m-4'>
+        <ThemeToggle />
+      </div>
 
-			<p className="mt-4 px-4 text-sm text-center">
-				Already have an account?{" "}
-				<Link href="/login" className="font-medium">
-					Login
-				</Link>
-			</p>
-		</Container>
-	);
+      <h2 className='font-medium text-3xl md:text-4xl text-center'>
+        Create Account
+        <span className='block font-normal text-sm md:text-base text-slate-500'>
+          add required details
+        </span>
+      </h2>
+
+      <div className='p-4 w-full sm:max-w-xl'>
+        <SignUpForm />
+      </div>
+
+      <p className='px-4 text-sm text-center'>
+        Already a user?{' '}
+        <Link
+          href='/login'
+          className='font-medium underline underline-offset-2'
+        >
+          Login
+        </Link>
+      </p>
+    </Container>
+  );
 };
 
 export default SignUpPage;

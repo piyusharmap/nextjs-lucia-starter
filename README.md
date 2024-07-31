@@ -23,6 +23,4 @@ The goal of this starter kit is to provide a basic application structure that yo
 5. `TypeScript`: Type-safe code with TypeScript support.
    Tailwind CSS: Utility-first CSS framework for rapid UI development.
 
-6. `ESLint & Prettier`: Configured for code linting and formatting.
-
 ## Setup

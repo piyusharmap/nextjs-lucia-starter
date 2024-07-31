@@ -8,7 +8,12 @@ const Container = ({
 	children: React.ReactNode;
 }) => {
 	return (
-		<div className={twMerge("mx-auto max-w-7xl", className)}>
+		<div
+			className={twMerge(
+				"mx-auto max-w-7xl min-h-screen overflow-hidden",
+				className
+			)}
+		>
 			{children}
 		</div>
 	);

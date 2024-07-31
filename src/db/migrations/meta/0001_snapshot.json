@@ -1,6 +1,6 @@
 {
-  "id": "0ca524c5-9691-47c5-8f7b-d33996f9d4d7",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "94958835-66aa-451c-abef-28736ccf00f2",
+  "prevId": "0ca524c5-9691-47c5-8f7b-d33996f9d4d7",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -57,6 +57,18 @@
           "type": "varchar(128)",
           "primaryKey": false,
           "notNull": true
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "char(128)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "char(128)",
+          "primaryKey": false,
+          "notNull": false
         },
         "password_hash": {
           "name": "password_hash",

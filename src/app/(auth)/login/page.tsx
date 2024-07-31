@@ -1,21 +1,42 @@
-import Container from "@/components/layout/container";
+import Image from "next/image";
 import Link from "next/link";
+
+import Container from "@/components/layout/container";
+import ThemeToggle from "@/components/theme/themeToggle";
 import LoginForm from "../forms/loginForm";
 
 const LoginPage = () => {
 	return (
-		<Container>
-			<h1 className="px-4 py-5 font-medium text-xl sm:text-3xl text-center">
-				Login
-			</h1>
+		<Container className="relative p-0 flex flex-col justify-center items-center space-y-4">
+			<Image
+				src="/logo.svg"
+				alt="NEXTxLUCIA"
+				width={100}
+				height={100}
+				className="size-12"
+			/>
 
-			<div className="px-4 py-5 mx-auto w-full sm:w-4/5 md:w-1/2">
+			<div className="absolute top-0 right-0 m-4">
+				<ThemeToggle />
+			</div>
+
+			<h2 className="font-medium text-3xl md:text-4xl text-center">
+				Login
+				<span className="block font-normal text-sm md:text-base text-slate-500">
+					to your account
+				</span>
+			</h2>
+
+			<div className="p-4 w-full sm:max-w-xl">
 				<LoginForm />
 			</div>
 
-			<p className="mt-4 px-4 text-sm text-center">
+			<p className="px-4 text-sm text-center">
 				Don't have an account?{" "}
-				<Link href="/sign-up" className="font-medium">
+				<Link
+					href="/sign-up"
+					className="font-medium underline underline-offset-2"
+				>
 					Sign up
 				</Link>
 			</p>

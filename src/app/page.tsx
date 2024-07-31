@@ -1,19 +1,11 @@
 import Container from "@/components/layout/container";
-import SignOut from "@/components/sign-out";
-import { validateRequest } from "@/lib/validate-user";
-import { redirect } from "next/navigation";
+import Header from "@/components/layout/header/header";
+import { CheckCircle2 } from "lucide-react";
 
 export default async function Home() {
-	const { user } = await validateRequest();
-
-	if (!user) {
-		return redirect("/login");
-	}
-
 	return (
 		<Container>
-			<h1 className="text-2xl">Hi, {user?.username}!</h1>
-			<SignOut />
+			<Header />
 		</Container>
 	);
 }
