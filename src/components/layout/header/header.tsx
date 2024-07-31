@@ -20,7 +20,7 @@ const Header = async () => {
 					className="size-8 sm:size-10"
 				/>
 
-				<p className="font-medium text-xl">
+				<p className="hidden sm:block font-medium text-xl">
 					NEXT<span className="text-slate-500">x</span>LUCIA
 				</p>
 			</Link>

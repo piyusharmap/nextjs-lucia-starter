@@ -8,13 +8,15 @@ import LoginForm from "../forms/loginForm";
 const LoginPage = () => {
 	return (
 		<Container className="relative p-0 flex flex-col justify-center items-center space-y-4">
-			<Image
-				src="/logo.svg"
-				alt="NEXTxLUCIA"
-				width={100}
-				height={100}
-				className="size-12"
-			/>
+			<Link href="/">
+				<Image
+					src="/logo.svg"
+					alt="NEXTxLUCIA"
+					width={100}
+					height={100}
+					className="size-12"
+				/>
+			</Link>
 
 			<div className="absolute top-0 right-0 m-4">
 				<ThemeToggle />
