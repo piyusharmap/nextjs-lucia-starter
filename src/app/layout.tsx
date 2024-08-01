@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 		default: "Next/Lucia",
 	},
 	description:
-		"Next.js starter project with app router, lucia authentication, drizzle orm and shadcn components.",
+		"Next.js starter project with app router, lucia auth, drizzle and shadcn components.",
 };
 
 export default function RootLayout({

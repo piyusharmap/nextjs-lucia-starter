@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Settings2, User, User2 } from "lucide-react";
+import { Settings2, User2 } from "lucide-react";
 
 import LogoutButton from "@/components/button/logoutButton";
 import { Button } from "@/components/ui/button";
@@ -19,20 +19,36 @@ const ProfileDropdown = async () => {
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button variant="outline" size="icon">
-					<User size={18} />
+					<User2 size={20} />
 				</Button>
 			</DropdownMenuTrigger>
 
 			<DropdownMenuContent align="end" className="w-44 overflow-hidden">
+				<div className="px-2 py-1">
+					<p className="font-medium">
+						<span className="block font-normal text-xs sm:text-sm text-slate-500">
+							logged in as
+						</span>
+						{user?.username}
+					</p>
+				</div>
+
+				<DropdownMenuSeparator />
+
 				<DropdownMenuItem asChild>
-					<Link href={`/${user?.username}`}>
-						<User2 size={18} className="mr-2" /> {user?.username}
+					<Link
+						href={`/${user?.username}`}
+						className="flex overflow-hidden"
+					>
+						<User2 size={18} className="mr-2" />
+						<p className="flex-1 truncate">Profile</p>
 					</Link>
 				</DropdownMenuItem>
 
 				<DropdownMenuItem asChild>
 					<Link href="/settings">
-						<Settings2 size={18} className="mr-2" /> Settings
+						<Settings2 size={18} className="mr-2" />
+						<p>Settings</p>
 					</Link>
 				</DropdownMenuItem>
 

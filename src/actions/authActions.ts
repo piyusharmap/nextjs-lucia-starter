@@ -49,6 +49,7 @@ export async function userSignupAction({
 			firstName,
 			lastName: lastName || "",
 			passwordHash,
+			createdAt: new Date(),
 		});
 
 		const session = await lucia.createSession(userId, {});
@@ -161,6 +162,50 @@ export async function userLogoutAction() {
 		return {
 			status: false,
 			message: "Error logging out.",
+		};
+	}
+}
+
+export async function userUpdateAction({
+	username,
+	firstName,
+	lastName,
+	bio,
+}: {
+	username: string;
+	firstName: string;
+	lastName?: string;
+	bio?: string;
+}) {
+	try {
+		const existingUser = await db.query.userTable.findFirst({
+			where: eq(userTable.username, username),
+		});
+
+		if (!existingUser) {
+			return {
+				status: false,
+				message: "User not found.",
+			};
+		}
+
+		await db.update(userTable).set({
+			firstName,
+			lastName,
+			bio,
+			updatedAt: new Date(),
+		});
+
+		return {
+			status: true,
+			message: `Profile details updated successfully.`,
+		};
+	} catch (error) {
+		console.error("Error updating profile: ", error);
+
+		return {
+			status: false,
+			message: "Error updating profile.",
 		};
 	}
 }

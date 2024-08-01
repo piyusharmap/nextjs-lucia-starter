@@ -6,10 +6,10 @@ import { getUserDetails } from "@/data-access/user";
 import SiteHeader from "@/components/layout/header/header";
 import SiteFooter from "@/components/layout/footer/footer";
 import Section from "@/components/layout/section";
-import Image from "next/image";
-import ProfileMale from "../../../public/user-male.svg";
-import ProfileFemale from "../../../public/user-female.svg";
-import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import UpdateProfileDialog from "./components/updateProfileDialog";
+
+export const revalidate = 0;
 
 export async function generateMetadata({
 	params,
@@ -41,21 +41,29 @@ const ProfilePage = async ({
 			<SiteHeader />
 
 			<Section className="min-h-screen">
-				<div className="px-6 py-4 rounded-lg border border-border">
-					<p className="w-fit text-sm sm:text-base opacity-75 hover:opacity-100 cursor-pointer">
+				<div className="p-4 sm:w-full sm:max-w-md rounded-lg border border-border">
+					<p className="w-fit text-sm sm:text-base opacity-75 hover:opacity-100">
 						@{user?.username}
 					</p>
 
-					<h3 className="w-fit font-medium text-lg sm:text-xl md:text-2xl capitalize">
+					<h3 className="mb-1 w-fit font-medium text-lg sm:text-xl md:text-2xl capitalize">
 						{user?.firstName} {user?.lastName}
 					</h3>
 
-					<div className="mt-4 flex justify-end gap-2">
-						<Button variant="secondary" size="sm">
-							Share
-						</Button>
+					<Label className="text-slate-500">Bio</Label>
+					{user?.bio ? (
+						<p className="text-sm sm:text-base">{user?.bio}</p>
+					) : (
+						<p className="text-sm sm:text-base italic opacity-75">
+							Tell us a little bit about yourself
+						</p>
+					)}
 
-						<Button size="sm">Edit</Button>
+					<div className="mt-2 flex justify-end gap-2">
+						<UpdateProfileDialog
+							username={params.username}
+							updatedAt={user.updatedAt}
+						/>
 					</div>
 				</div>
 			</Section>

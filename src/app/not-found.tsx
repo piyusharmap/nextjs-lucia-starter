@@ -1,16 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 import Container from "@/components/layout/container";
 import Section from "@/components/layout/section";
-import SiteHeader from "@/components/layout/header/header";
 import SiteFooter from "@/components/layout/footer/footer";
+import { Button } from "@/components/ui/button";
 
 const NotFoundPage = () => {
 	return (
 		<Container>
-			<SiteHeader />
-
-			<Section className="h-screen pt-20 flex flex-col items-center space-y-2">
+			<Section className="h-screen pt-20 flex flex-col items-center space-y-4">
 				<Image
 					src="/not-found.svg"
 					alt="Page not found"
@@ -25,6 +25,16 @@ const NotFoundPage = () => {
 						Page not found
 					</span>
 				</h2>
+
+				<Button variant="ghost" className="group" asChild>
+					<Link href="/">
+						<ArrowLeft
+							size={18}
+							className="mx-2 group-hover:ml-1 group-hover:mr-3 transition-all"
+						/>
+						Go Back
+					</Link>
+				</Button>
 			</Section>
 
 			<SiteFooter />

@@ -1,13 +1,18 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import LoginForm from "../forms/loginForm";
 import Section from "@/components/layout/section";
 import { validateRequest } from "@/lib/validate-user";
-import { redirect } from "next/navigation";
+
+export async function generateMetadata() {
+	return {
+		title: "Login",
+	};
+}
 
 const LoginPage = async () => {
 	const { user } = await validateRequest();
-
 	if (user) {
 		redirect("/");
 	}

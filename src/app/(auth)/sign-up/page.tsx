@@ -1,9 +1,9 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import SignUpForm from "../forms/signupForm";
 import Section from "@/components/layout/section";
 import { validateRequest } from "@/lib/validate-user";
-import { redirect } from "next/navigation";
 
 export async function generateMetadata() {
 	return {
@@ -13,7 +13,6 @@ export async function generateMetadata() {
 
 const SignUpPage = async () => {
 	const { user } = await validateRequest();
-
 	if (user) {
 		redirect("/");
 	}

@@ -9,7 +9,6 @@ import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
-	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -21,12 +20,12 @@ const ThemeToggle = () => {
 			<DropdownMenuTrigger asChild>
 				<Button variant="outline" size="icon">
 					<Sun
-						size={18}
+						size={20}
 						className="block dark:hidden transition-all"
 					/>
 
 					<Moon
-						size={18}
+						size={20}
 						className="hidden dark:block transition-all"
 					/>
 

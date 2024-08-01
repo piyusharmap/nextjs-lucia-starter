@@ -1,8 +1,9 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import Container from "@/components/layout/container";
 import Logo from "@/components/logo";
 import ThemeToggle from "@/components/theme/themeToggle";
-import Image from "next/image";
-import Link from "next/link";
 
 export default function AuthLayout({
 	children,

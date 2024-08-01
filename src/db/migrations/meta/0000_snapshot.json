@@ -1,5 +1,5 @@
 {
-  "id": "0ca524c5-9691-47c5-8f7b-d33996f9d4d7",
+  "id": "0605133a-04a1-4e17-bbb4-cbce5aea52ba",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -33,8 +33,12 @@
           "name": "session_user_id_user_id_fk",
           "tableFrom": "session",
           "tableTo": "user",
-          "columnsFrom": ["user_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "cascade",
           "onUpdate": "no action"
         }
@@ -54,15 +58,49 @@
         },
         "username": {
           "name": "username",
-          "type": "varchar(128)",
+          "type": "varchar(32)",
           "primaryKey": false,
           "notNull": true
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "char(128)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "char(128)",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "''"
+        },
+        "bio": {
+          "name": "bio",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "''"
         },
         "password_hash": {
           "name": "password_hash",
           "type": "text",
           "primaryKey": false,
           "notNull": true
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
         }
       },
       "indexes": {},
@@ -72,7 +110,9 @@
         "user_username_unique": {
           "name": "user_username_unique",
           "nullsNotDistinct": false,
-          "columns": ["username"]
+          "columns": [
+            "username"
+          ]
         }
       }
     }

@@ -26,11 +26,7 @@ export const userSignupSchema = z.object({
 		.max(128, "Password must be at most 12 characters long"),
 });
 
-export const userEditSchema = z.object({
-	username: z
-		.string({ required_error: "Username is required" })
-		.min(1, "Username is required")
-		.max(31, "Username must be at most 12 characters long"),
+export const updateUserSchema = z.object({
 	firstName: z
 		.string({ required_error: "First name is required" })
 		.min(1, "First name is required"),
