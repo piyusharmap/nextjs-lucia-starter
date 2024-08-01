@@ -142,6 +142,11 @@ const LoginForm = () => {
 					</Button>
 				</div>
 			</form>
+
+			<p className="pt-6 text-sm sm:text-base text-slate-500 text-center">
+				By logging in to Next/Lucia, you agree to our Terms and
+				Policies.
+			</p>
 		</Form>
 	);
 };

@@ -5,23 +5,25 @@ import { validateRequest } from "@/lib/validate-user";
 import ProfileDropdown from "./profileDropdown";
 import ThemeToggle from "@/components/theme/themeToggle";
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/logo";
 
-const Header = async () => {
+const SiteHeader = async () => {
 	const { user } = await validateRequest();
 
 	return (
-		<div className="px-5 py-4 flex justify-between items-center border-slate-200 dark:border-slate-800">
-			<Link href="/" className="group flex items-center space-x-2">
+		<div className="p-4 flex justify-between items-center border-slate-200 dark:border-slate-800">
+			<Link href="/" className="flex items-center space-x-2">
 				<Image
-					src="/logo.svg"
-					alt="NEXTxLUCIA"
+					src={Logo}
+					alt="Next/Lucia"
+					title="Next/Lucia"
 					width={100}
 					height={100}
 					className="size-8 sm:size-10"
 				/>
 
 				<p className="hidden sm:block font-medium text-xl">
-					NEXT<span className="text-slate-500">x</span>LUCIA
+					Next/Lucia
 				</p>
 			</Link>
 
@@ -40,4 +42,4 @@ const Header = async () => {
 	);
 };
 
-export default Header;
+export default SiteHeader;

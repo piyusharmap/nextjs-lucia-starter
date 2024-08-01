@@ -78,23 +78,6 @@ const SignUpForm = () => {
 			>
 				<FormField
 					control={form.control}
-					name="username"
-					render={({ field }) => (
-						<FormItem className="col-span-2">
-							<FormLabel className="ml-1">Username</FormLabel>
-							<FormControl>
-								<Input
-									placeholder="Enter username"
-									{...field}
-								/>
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-
-				<FormField
-					control={form.control}
 					name="firstName"
 					render={({ field }) => (
 						<FormItem className="col-span-2 sm:col-span-1">
@@ -119,6 +102,23 @@ const SignUpForm = () => {
 							<FormControl>
 								<Input
 									placeholder="Enter last name"
+									{...field}
+								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+
+				<FormField
+					control={form.control}
+					name="username"
+					render={({ field }) => (
+						<FormItem className="col-span-2">
+							<FormLabel className="ml-1">Username</FormLabel>
+							<FormControl>
+								<Input
+									placeholder="Enter username"
 									{...field}
 								/>
 							</FormControl>
@@ -180,6 +180,11 @@ const SignUpForm = () => {
 					</Button>
 				</div>
 			</form>
+
+			<p className="pt-6 text-sm sm:text-base text-slate-500 text-center">
+				By creating an account on Next/Lucia, you agree to our Terms and
+				Policies.
+			</p>
 		</Form>
 	);
 };

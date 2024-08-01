@@ -1,13 +1,16 @@
-import FeaturesGrid from "@/components/featuresGrid";
 import Container from "@/components/layout/container";
-import Header from "@/components/layout/header/header";
+import SiteFooter from "@/components/layout/footer/footer";
+import SiteHeader from "@/components/layout/header/header";
+import Section from "@/components/layout/section";
 
 export default async function Home() {
 	return (
 		<Container>
-			<Header />
+			<SiteHeader />
 
-			<FeaturesGrid />
+			<Section className="min-h-screen">Features</Section>
+
+			<SiteFooter />
 		</Container>
 	);
 }

@@ -9,8 +9,8 @@ const jost = Jost({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: {
-		template: "%s - NEXTxLUCIA",
-		default: "NEXTxLUCIA",
+		template: "%s - Next/Lucia",
+		default: "Next/Lucia",
 	},
 	description:
 		"Next.js starter project with app router, lucia authentication, drizzle orm and shadcn components.",

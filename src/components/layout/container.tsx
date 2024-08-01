@@ -9,10 +9,7 @@ const Container = ({
 }) => {
 	return (
 		<div
-			className={twMerge(
-				"mx-auto max-w-7xl min-h-screen overflow-hidden",
-				className
-			)}
+			className={twMerge("mx-auto max-w-7xl overflow-hidden", className)}
 		>
 			{children}
 		</div>

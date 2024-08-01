@@ -1,49 +1,44 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Link from "next/link";
 
-import Container from '@/components/layout/container';
-import ThemeToggle from '@/components/theme/themeToggle';
-import SignUpForm from '../forms/signupForm';
+import SignUpForm from "../forms/signupForm";
+import Section from "@/components/layout/section";
+import { validateRequest } from "@/lib/validate-user";
+import { redirect } from "next/navigation";
 
-const SignUpPage = () => {
-  return (
-    <Container className='relative p-0 flex flex-col justify-center items-center space-y-4'>
-      <Link href="/">
-				<Image
-					src="/logo.svg"
-					alt="NEXTxLUCIA"
-					width={100}
-					height={100}
-					className="size-12"
-				/>
-			</Link>
+export async function generateMetadata() {
+	return {
+		title: "Sign Up",
+	};
+}
 
-      <div className='absolute top-0 right-0 m-4'>
-        <ThemeToggle />
-      </div>
+const SignUpPage = async () => {
+	const { user } = await validateRequest();
 
-      <h2 className='font-medium text-3xl md:text-4xl text-center'>
-        Create Account
-        <span className='block font-normal text-sm md:text-base text-slate-500'>
-          add required details
-        </span>
-      </h2>
+	if (user) {
+		redirect("/");
+	}
 
-      <div className='p-4 w-full sm:max-w-xl'>
-        <SignUpForm />
-      </div>
+	return (
+		<Section className="h-screen pt-20 flex flex-col items-center">
+			<h2 className="py-2 font-medium text-2xl sm:text-3xl md:text-4xl text-center">
+				Create Account
+			</h2>
 
-      <p className='px-4 text-sm text-center'>
-        Already a user?{' '}
-        <Link
-          href='/login'
-          className='font-medium underline underline-offset-2'
-        >
-          Login
-        </Link>
-      </p>
-    </Container>
-  );
+			<p className="px-4 text-sm text-slate-500 text-center">
+				Already a user?{" "}
+				<Link
+					href="/login"
+					className="font-medium text-primary hover:underline underline-offset-2"
+				>
+					Login
+				</Link>
+			</p>
+
+			<div className="mt-8 md:mt-10 w-full max-w-md">
+				<SignUpForm />
+			</div>
+		</Section>
+	);
 };
 
 export default SignUpPage;

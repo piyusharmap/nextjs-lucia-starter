@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { User, User2 } from "lucide-react";
+import { Settings2, User, User2 } from "lucide-react";
 
 import LogoutButton from "@/components/button/logoutButton";
 import { Button } from "@/components/ui/button";
@@ -19,7 +19,7 @@ const ProfileDropdown = async () => {
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
 				<Button variant="outline" size="icon">
-					<User />
+					<User size={18} />
 				</Button>
 			</DropdownMenuTrigger>
 
@@ -27,6 +27,12 @@ const ProfileDropdown = async () => {
 				<DropdownMenuItem asChild>
 					<Link href={`/${user?.username}`}>
 						<User2 size={18} className="mr-2" /> {user?.username}
+					</Link>
+				</DropdownMenuItem>
+
+				<DropdownMenuItem asChild>
+					<Link href="/settings">
+						<Settings2 size={18} className="mr-2" /> Settings
 					</Link>
 				</DropdownMenuItem>
 
