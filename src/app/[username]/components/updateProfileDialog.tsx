@@ -15,9 +15,11 @@ import UpdateProfileForm from "./updateProfileForm";
 import { formatDate } from "@/utils/formatDate";
 
 const UpdateProfileDialog = ({
+	id,
 	username,
 	updatedAt,
 }: {
+	id: string;
 	username: string;
 	updatedAt: Date;
 }) => {
@@ -26,7 +28,7 @@ const UpdateProfileDialog = ({
 	return (
 		<Dialog open={open} onOpenChange={setOpen}>
 			<DialogTrigger asChild>
-				<Button size="sm">Edit Profile</Button>
+				<Button size="sm">Edit</Button>
 			</DialogTrigger>
 
 			<DialogContent className="max-h-[80vh] overflow-auto">
@@ -37,7 +39,11 @@ const UpdateProfileDialog = ({
 					</DialogDescription>
 				</DialogHeader>
 
-				<UpdateProfileForm username={username} setOpen={setOpen} />
+				<UpdateProfileForm
+					id={id}
+					username={username}
+					setOpen={setOpen}
+				/>
 			</DialogContent>
 		</Dialog>
 	);

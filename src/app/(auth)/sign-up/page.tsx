@@ -13,6 +13,7 @@ export async function generateMetadata() {
 
 const SignUpPage = async () => {
 	const { user } = await validateRequest();
+
 	if (user) {
 		redirect("/");
 	}

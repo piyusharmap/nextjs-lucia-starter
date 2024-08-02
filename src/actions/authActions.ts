@@ -209,3 +209,35 @@ export async function userUpdateAction({
 		};
 	}
 }
+
+export async function userDeleteAction({ username }: { username: string }) {
+	try {
+		const existingUser = await db.query.userTable.findFirst({
+			where: eq(userTable.username, username),
+		});
+
+		if (!existingUser) {
+			return {
+				status: false,
+				message: "User not found.",
+			};
+		}
+
+		const deleteUser = await db
+			.delete(userTable)
+			.where(eq(userTable.username, username))
+			.returning({ username: userTable.username });
+
+		return {
+			status: true,
+			message: `User ${deleteUser[0].username} deleted successfully.`,
+		};
+	} catch (error) {
+		console.error("Error deleting profile: ", error);
+
+		return {
+			status: false,
+			message: "Error deleting profile.",
+		};
+	}
+}

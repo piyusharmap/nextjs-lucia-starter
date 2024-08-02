@@ -1,8 +1,14 @@
 import { getUserInfoAction } from "@/actions/userActions";
 import useSWR from "swr";
 
-export default function useUserInfo(username: string) {
-	const { data, isLoading, error } = useSWR(`/${username}`, () =>
+export default function useUserInfo({
+	id,
+	username,
+}: {
+	id: string;
+	username: string;
+}) {
+	const { data, isLoading, error } = useSWR(`/${id}`, () =>
 		getUserInfoAction(username)
 	);
 

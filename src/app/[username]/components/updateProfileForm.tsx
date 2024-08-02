@@ -23,15 +23,17 @@ import useUserInfo from "@/hooks/useUserInfo";
 import { updateUserSchema } from "@/lib/schema/auth";
 
 const UpdateProfileForm = ({
+	id,
 	username,
 	setOpen,
 }: {
+	id: string;
 	username: string;
 	setOpen: Dispatch<SetStateAction<boolean>>;
 }) => {
 	const router = useRouter();
 	const [loading, setLoading] = useState<boolean>(false);
-	const { userData, isLoading, isError } = useUserInfo(username);
+	const { userData, isLoading, isError } = useUserInfo({ id, username });
 
 	const form = useForm<z.infer<typeof updateUserSchema>>({
 		resolver: zodResolver(updateUserSchema),

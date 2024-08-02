@@ -8,6 +8,7 @@ import SiteFooter from "@/components/layout/footer/footer";
 import Section from "@/components/layout/section";
 import { Label } from "@/components/ui/label";
 import UpdateProfileDialog from "./components/updateProfileDialog";
+import DeleteProfileDialog from "./components/deleteProfileDialog";
 
 export const revalidate = 0;
 
@@ -60,8 +61,11 @@ const ProfilePage = async ({
 					)}
 
 					<div className="mt-2 flex justify-end gap-2">
+						<DeleteProfileDialog username={params.username} />
+
 						<UpdateProfileDialog
-							username={params.username}
+							id={user.id}
+							username={user.username}
 							updatedAt={user.updatedAt}
 						/>
 					</div>
